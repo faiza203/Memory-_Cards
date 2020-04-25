@@ -58,3 +58,22 @@ function updateCurrentText() {
   currentEl.innerText = `${CAC + 1}/${cardsEl.length}`;
 }
 createCards();
+nextBtn.addEventListener("click", () => {
+  cardsEl[CAC].className = "card left";
+  CAC = CAC + 1;
+  if (CAC > cardsEl.length - 1) {
+    CAC = cardsEl.length - 1;
+  }
+  cardsEl[CAC].className = "card active";
+  updateCurrentText();
+});
+prevBtn.addEventListener("click", () => {
+  cardsEl[CAC].className = "card right";
+  CAC = CAC - 1;
+  if (CAC < 0) {
+    CAC = 0;
+  }
+
+  cardsEl[CAC].className = "card active";
+  updateCurrentText();
+});
